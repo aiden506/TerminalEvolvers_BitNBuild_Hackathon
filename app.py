@@ -2,6 +2,7 @@ from flask import Flask,request,render_template
 import numpy as np
 import pickle
 import sqlite3
+import ast
 labels=[
 'Age', 'Gender', 'HS Type', 'Scholarship Type',
        'Working', 'Extra-curricular', 'Romantic relationship', 'Salary',
@@ -105,18 +106,24 @@ def cluster(x):
 app=Flask(__name__)
 app.jinja_env.filters['zip'] = zip
 
-@app.route('/')
+@app.route('/',methods=['GET','POST'])
 def home():
-    test = []
-    di = retrieve('STUDENT11')
-    di = list(di[0])
-    di.pop(0)
-    print(displaydata[0][1])
-    for i in range(30):
-        test.append(displaydata[i][di[i]])
-    test2=np.reshape(test,(10,3))
-    print(test2)
-    return render_template('home.html',labels=np.reshape(labels,(10,3)),results=test2)
+    # if request.method=='POST':
+        test = []
+        a = request.form.get('id')
+        # post = ast.literal_eval(vals)
+        print("Hiv",a)
+        di = retrieve(a)
+        di = list(di[0])
+        di.pop(0)
+        print(displaydata[0][1])
+        for i in range(30):
+            test.append(displaydata[i][di[i]])
+        test2=np.reshape(test,(10,3))
+        print(test2)
+        return render_template('home.html',labels=np.reshape(labels,(10,3)),results=test2)
+    # else:
+        return render_template('home.html')
 
 @app.route('/predict')
 def predict():
