@@ -1,1 +1,1 @@
-BitnBuild Hackathon repository
+BitNBuild Hackathon repository
