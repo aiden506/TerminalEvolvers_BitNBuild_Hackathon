@@ -15,12 +15,15 @@ This project uses
   * `Flask`
 * for back-end:
   * `sqlite3`
-* for prediction model:
-  * a `classification` model using scikit-learn
-  * a `clustering` model using scikit learn <br>
+* for prediction model:<br>
 Each of these models spit out a single prediction which is then combined to give a final prediction which also states a reason for the student's specific predicted     outcome.
+  * a `classification` model using scikit-learn.
+  * a `clustering` model using scikit learn. <br>
+
 * for dataset:
   * `'Higher Education Students Performance Evaluation Dataset'` from UCIML repository.
+* for deployement:
+  * `Vercel`
 
 ### How to Use the Project
 A  student, registered with the database, only needs to put in the unique student ID, the model automatically fetches data from the database to predict their future outcome. If the student does not have his/her details stored in the database, the student will have to fill in all the details before getting a predcition. This details will get stored in the database automatically for use in the future. Students also have the feature to edit certain attributes that get changed over time.
