@@ -18,7 +18,7 @@ This project uses
 * for prediction model:<br>
 Each of these models spit out a single prediction which is then combined to give a final prediction which also states a reason for the student's specific predicted     outcome.
   * a `classification` model using scikit-learn.
-  * a `clustering` model using scikit learn. <br>
+  * a `clustering` model using scikit-learn. <br>
 
 * for dataset:
   * `'Higher Education Students Performance Evaluation Dataset'` from UCIML repository.
